@@ -3,13 +3,14 @@ package com.VideoRankingApplication.videos;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+
 @Document(collection = "videos")
 public class Video {
 
     @Id
+    private String ObjectId;
     private String title;
     private String uploadDate;
-    private int numLikes;
     private int numViews;
     private String url;
     private boolean isFavourite;
@@ -21,6 +22,16 @@ public class Video {
         this.imgUrl = imgUrl;
         isFavourite = false;
         elo = 1600;
+    }
+
+    public Video(String title, String imgUrl, String uploadDate, int numViews, String url) {
+        this.title = title;
+        this.imgUrl = imgUrl;
+        this.uploadDate = uploadDate;
+        this.numViews = numViews;
+        this.url = url;
+        isFavourite = false;
+        initElo(numViews);
     }
 
     public String getImgUrl() {
@@ -44,9 +55,6 @@ public class Video {
         return numViews;
     }
 
-    public int getLikes() {
-        return numLikes;
-    }
 
     public String getUrl() {
         return url;

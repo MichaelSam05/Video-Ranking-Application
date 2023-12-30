@@ -32,7 +32,6 @@ def getDataTable (youtube,video_ids):
                     'Thumbnail': item['snippet']['thumbnails']['default']['url'],
                     'UploadDate': item['snippet']['publishedAt'],
                     'Views': item['statistics']['viewCount'],
-                    'Likes': item['statistics']['likeCount'],
                     'VideoID': "https://www.youtube.com/watch?v=" + video_ids[count]}
             count = count + 1
             all_data.append(data)
