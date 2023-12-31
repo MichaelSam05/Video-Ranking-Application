@@ -1,5 +1,6 @@
 package com.VideoRankingApplication.videos;
 
+import lombok.Getter;
 import org.json.JSONObject;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -9,23 +10,21 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Video {
 
     @Id
-    private String ObjectId;
+    private org.bson.types.ObjectId ObjectId;
+    @Getter
     private String VideoTitle;
     private String Thumbnail;
 
+    @Getter
     private String UploadDate;
+    @Getter
     private int Views;
+    @Getter
     private String VideoID;
     private boolean isFavourite;
+    @Getter
     private int elo;
     private static final int ELO = 1600;
-
-    public Video(String VideoTitle, String Thumbnail) {
-        this.VideoTitle = VideoTitle;
-        this.Thumbnail = Thumbnail;
-        isFavourite = false;
-        elo = ELO;
-    }
 
     public Video(String VideoTitle, String Thumbnail, String UploadDate, int Views, String VideoID) {
         this.VideoTitle = VideoTitle;
@@ -40,28 +39,33 @@ public class Video {
     public String getThumbnail() {
         return Thumbnail;
     }
-    //EFFECTS: initializes the elo for videos that came from the YouTube api
-    public void initElo(int numViews) {
-        int result =  ELO + (numViews/10000);//create an elo using numViews param
-        this.elo = result;
-    }
 
-    public String getVideoTitle() {
-        return VideoTitle;
+    public int getElo() {
+        return elo;
     }
 
     public String getUploadDate() {
         return UploadDate;
     }
 
+    public String getVideoID() {
+        return VideoID;
+    }
+
+    public String getVideoTitle() {
+        return VideoTitle;
+    }
+
     public int getViews() {
         return Views;
     }
 
-
-    public String getVideoID() {
-        return VideoID;
+    //EFFECTS: initializes the elo for videos that came from the YouTube api
+    public void initElo(int numViews) {
+        int result =  ELO + (numViews/10000);//create an elo using numViews param
+        this.elo = result;
     }
+
 
     public boolean getFavourite() {
         return isFavourite;
@@ -75,13 +79,10 @@ public class Video {
         this.isFavourite = false;
     }
 
-    public int getElo() {
-        return elo;
-    }
-
     public void setElo(int elo) {
         this.elo = elo;
     }
+
 
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
