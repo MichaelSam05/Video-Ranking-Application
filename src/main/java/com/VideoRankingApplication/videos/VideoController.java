@@ -14,11 +14,11 @@ public class VideoController {
 
     @GetMapping
     public ResponseEntity<String> getVideos() {
-        return new ResponseEntity<String>("videos stub", HttpStatus.OK);
+        return new ResponseEntity<String>("all videos stub", HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<Video> addNewVideo(@RequestBody String title, String imgUrl){
-        return new ResponseEntity<Video>(videoService.addNewVideo(title,imgUrl),HttpStatus.CREATED);
+    public ResponseEntity<Video> addNewVideo(@RequestBody String VideoTitle, String Thumbnail){
+        return new ResponseEntity<Video>(videoService.addNewVideo(VideoTitle,Thumbnail),HttpStatus.CREATED);
     }
 }

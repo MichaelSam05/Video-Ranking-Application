@@ -1,5 +1,8 @@
 package com.VideoRankingApplication.videos;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -63,4 +66,19 @@ public class VideoRankingSystem {
         return opponent;
     }
 
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("Videos", videosToJson());
+        return json;
+    }
+
+    // EFFECTS: returns the songs in this songDatabase as a JSON array
+    private JSONArray videosToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Video next : videos) {
+            jsonArray.put(next.toJson());
+        }
+        return jsonArray;
+    }
 }

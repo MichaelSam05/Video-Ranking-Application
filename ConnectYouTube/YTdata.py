@@ -1,4 +1,6 @@
 import json
+import os
+
 import googleapiclient.discovery
 import googleapiclient.errors
 
@@ -23,6 +25,8 @@ def getDataTable (youtube,video_ids):
     request_videos = youtube.videos().list(part = "snippet,statistics,contentDetails",id = ','.join(video_ids))
     response = request_videos.execute()
     all_data = []
+
+
     count = 0
 
     for item in response['items']:
@@ -60,8 +64,11 @@ def main():
     # Serializing json
     json_object = json.dumps(dictionary, indent=INDENT)
 
+
+    file_path = "C:\\mongodb\\videos\\data/YTvideos.json"
+
     # Writing to YTvideos.json
-    with open("data/YTvideos.json", "w") as outfile:
+    with open(file_path , "w") as outfile:
         outfile.write(json_object)
 
 

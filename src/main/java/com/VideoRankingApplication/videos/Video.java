@@ -1,5 +1,6 @@
 package com.VideoRankingApplication.videos;
 
+import org.json.JSONObject;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -9,55 +10,57 @@ public class Video {
 
     @Id
     private String ObjectId;
-    private String title;
-    private String uploadDate;
-    private int numViews;
-    private String url;
+    private String VideoTitle;
+    private String Thumbnail;
+
+    private String UploadDate;
+    private int Views;
+    private String VideoID;
     private boolean isFavourite;
     private int elo;
-    private String imgUrl;
+    private static final int ELO = 1600;
 
-    public Video(String title, String imgUrl) {
-        this.title = title;
-        this.imgUrl = imgUrl;
+    public Video(String VideoTitle, String Thumbnail) {
+        this.VideoTitle = VideoTitle;
+        this.Thumbnail = Thumbnail;
         isFavourite = false;
-        elo = 1600;
+        elo = ELO;
     }
 
-    public Video(String title, String imgUrl, String uploadDate, int numViews, String url) {
-        this.title = title;
-        this.imgUrl = imgUrl;
-        this.uploadDate = uploadDate;
-        this.numViews = numViews;
-        this.url = url;
+    public Video(String VideoTitle, String Thumbnail, String UploadDate, int Views, String VideoID) {
+        this.VideoTitle = VideoTitle;
+        this.Thumbnail = Thumbnail;
+        this.UploadDate = UploadDate;
+        this.Views = Views;
+        this.VideoID = VideoID;
         isFavourite = false;
-        initElo(numViews);
+        initElo(Views);
     }
 
-    public String getImgUrl() {
-        return imgUrl;
+    public String getThumbnail() {
+        return Thumbnail;
     }
     //EFFECTS: initializes the elo for videos that came from the YouTube api
     public void initElo(int numViews) {
-        int result = elo + (numViews/10000);//create an elo using numViews param
+        int result =  ELO + (numViews/10000);//create an elo using numViews param
         this.elo = result;
     }
 
-    public String getTitle() {
-        return title;
+    public String getVideoTitle() {
+        return VideoTitle;
     }
 
     public String getUploadDate() {
-        return uploadDate;
+        return UploadDate;
     }
 
     public int getViews() {
-        return numViews;
+        return Views;
     }
 
 
-    public String getUrl() {
-        return url;
+    public String getVideoID() {
+        return VideoID;
     }
 
     public boolean getFavourite() {
@@ -79,4 +82,17 @@ public class Video {
     public void setElo(int elo) {
         this.elo = elo;
     }
+
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("VideoTitle", VideoTitle);
+        json.put("Thumbnail", Thumbnail);
+        json.put("UploadDate",  UploadDate);
+        json.put("Views", Views);
+        json.put("Elo-Rank",elo);
+        json.put("IsFavourite", isFavourite);
+        json.put("VideoUrl",VideoID);
+        return json;
+    }
+
 }
