@@ -1,22 +1,17 @@
 package com.VideoRankingApplication.videos;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.bson.types.ObjectId;
 import org.json.JSONObject;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "videos")
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class Video {
     @Id
     private ObjectId objectId;
 
     private String VideoTitle;
+
     private String Thumbnail;
 
     private String UploadDate;
@@ -24,6 +19,7 @@ public class Video {
     private int Views;
 
     private String VideoID;
+
     private boolean isFavourite;
 
     private int elo;
@@ -51,9 +47,9 @@ public class Video {
         return UploadDate;
     }
 
-    // public String getVideoID() {
-    //  return VideoID;
-    // }
+     public String getVideoID() {
+        return VideoID;
+     }
 
     public String getVideoTitle() {
         return VideoTitle;
@@ -96,7 +92,6 @@ public class Video {
         json.put("Elo-Rank",elo);
         json.put("IsFavourite", isFavourite);
         json.put("VideoUrl",VideoID);
-        json.put("_class",Video.class);
         return json;
     }
 

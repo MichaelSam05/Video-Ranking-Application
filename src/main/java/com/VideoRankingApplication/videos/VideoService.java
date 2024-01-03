@@ -35,7 +35,7 @@ public class VideoService {
         return videos;
     }
 
-    public Integer calcNewResuls(String winner,String losser) {
+    public Video calcNewResuls(String winner,String losser) {
 
         Query query = new Query();
         query.addCriteria(Criteria.where("VideoUrl").is(winner));
@@ -43,9 +43,9 @@ public class VideoService {
         Query query1 = new Query();
         query1.addCriteria(Criteria.where("VideoUrl").is(losser));
         List<Video> losserKey = mongoTemplate.find(query,Video.class);
-        int result = vrs.calcElo(winnerKey.get(0),losserKey.get(0));
+        //int result = vrs.calcElo(winnerKey.get(0),losserKey.get(0));
 
-        return result;
+        return winnerKey.get(0);
     }
 
     public Video getChallenger() {
