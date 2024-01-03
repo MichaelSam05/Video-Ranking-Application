@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
-import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,17 +15,16 @@ public class VideoService {
     private VideoRankingSystem vrs = new VideoRankingSystem();
 
     @Autowired
-    private VideoDocumentRepository videoDocumentRepository;
+    private VideoRepository videoRepository;
 
     @Autowired
     private MongoTemplate mongoTemplate;
 
     public Video addNewVideo(String title, String imgUrl) {
-        //Video video = videoRepo.insert(new Video(title,imgUrl,"n/a",0,"n/a"));
-        Video video = new Video(title,imgUrl,"n/a",0,"n/a");
-        mongoTemplate.update(VideoDocument.class)
-                .apply(new Update().push("Videos").value(video)).first();
-        vrs.addVideo(video);
+        Video video = videoRepository.insert(new Video(title,imgUrl,"n/a",0,"n/a"));
+//        mongoTemplate.update(Video.class)
+//                .apply(new Update().push("Videos").value(video)).first();
+//        vrs.addVideo(video);
 
         return video;
 
@@ -38,31 +36,16 @@ public class VideoService {
     }
 
     public Integer calcNewResuls(String winner,String losser) {
-//        Criteria elementMatchCriteria = Criteria.where("videos.Videos").elemMatch(Criteria.where("Videos.VideoUrl").is(winner));
-//        Query query = Query.query(elementMatchCriteria);
-//        Video winnerKey =  mongoTemplate.findOne(query, Video.class);
-//        elementMatchCriteria = Criteria.where("videos.Videos").elemMatch(Criteria.where("Videos.VideoUrl").is(losser));
-//        query = Query.query(elementMatchCriteria);
-//        Video loserKey = mongoTemplate.findOne(query, Video.class);
 
-
-
-//        List<Video> videos = mongoTemplate.findAll(VideoDocument.class).get(0).Videos;
-//        Video winner =videos.get(0);
-//        Video losser = videos.get(0);
-//        for (Video next: videos) {
-//            if (next.getVideoID().equals(winnerKey)) {
-//                 winner = next;
-//            } else if (next.getVideoID().equals(losserKey)) {
-//                 losser = next;
-//            }
-//        }
         Query query = new Query();
-        query.addCriteria(Criteria.where("Videos").is(winner));
+        query.addCriteria(Criteria.where("VideoUrl").is(winner));
         List<Video> winnerKey = mongoTemplate.find(query,Video.class);
+        Query query1 = new Query();
+        query1.addCriteria(Criteria.where("VideoUrl").is(losser));
+        List<Video> losserKey = mongoTemplate.find(query,Video.class);
+        int result = vrs.calcElo(winnerKey.get(0),losserKey.get(0));
 
-
-        return winnerKey.size();
+        return result;
     }
 
     public Video getChallenger() {
