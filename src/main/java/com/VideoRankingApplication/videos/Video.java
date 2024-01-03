@@ -1,28 +1,28 @@
 package com.VideoRankingApplication.videos;
 
-import lombok.Getter;
+import lombok.Data;
+import org.bson.types.ObjectId;
 import org.json.JSONObject;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-
+@Data
 @Document(collection = "videos")
 public class Video {
 
     @Id
-    private org.bson.types.ObjectId ObjectId;
-    @Getter
+    private ObjectId id;
+
     private String VideoTitle;
     private String Thumbnail;
 
-    @Getter
     private String UploadDate;
-    @Getter
+
     private int Views;
-    @Getter
+
     private String VideoID;
     private boolean isFavourite;
-    @Getter
+
     private int elo;
     private static final int ELO = 1600;
 
@@ -48,9 +48,9 @@ public class Video {
         return UploadDate;
     }
 
-    public String getVideoID() {
-        return VideoID;
-    }
+   // public String getVideoID() {
+      //  return VideoID;
+   // }
 
     public String getVideoTitle() {
         return VideoTitle;
@@ -95,5 +95,29 @@ public class Video {
         json.put("VideoUrl",VideoID);
         return json;
     }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        // if both the object references are
+        // referring to the same object.
+        if(this == obj)
+            return true;
+
+        // it checks if the argument is of the
+        // type Geek by comparing the classes
+        // of the passed argument and this object.
+        // if(!(obj instanceof Geek)) return false; ---> avoid.
+        if(obj == null || obj.getClass()!= this.getClass())
+            return false;
+
+        // type casting of the argument.
+        Video video = (Video) obj;
+
+        // comparing the state of argument with
+        // the state of 'this' Object.
+        return (video.getVideoID().equals(this.VideoID));
+    }
+
 
 }

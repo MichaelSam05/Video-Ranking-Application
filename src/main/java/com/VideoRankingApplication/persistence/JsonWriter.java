@@ -1,7 +1,7 @@
 package com.VideoRankingApplication.persistence;
 
 import com.VideoRankingApplication.videos.VideoRankingSystem;
-import org.json.JSONObject;
+import org.json.JSONArray;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -29,7 +29,7 @@ public class JsonWriter {
     // MODIFIES: this
     // EFFECTS: writes JSON representation of songDatabase to file
     public void write(VideoRankingSystem vrs) {
-        JSONObject json = vrs.toJson();
+        JSONArray json = vrs.videosToJson();
         saveToFile(json.toString(TAB));
     }
 
