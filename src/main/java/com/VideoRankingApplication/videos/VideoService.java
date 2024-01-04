@@ -31,25 +31,36 @@ public class VideoService {
     }
 
     public List<Video> getAllVideos() {
-        List<Video> videos = mongoTemplate.findAll(Video.class,"videos");
-        return videos;
+        return videoRepository.findAll();
     }
 
     public Video calcNewResuls(String winner,String losser) {
 
         Query query = new Query();
-        query.addCriteria(Criteria.where("VideoUrl").is(winner));
+        query.addCriteria(Criteria.where("Thumbnail").is(winner));
         List<Video> winnerKey = mongoTemplate.find(query,Video.class);
         Query query1 = new Query();
-        query1.addCriteria(Criteria.where("VideoUrl").is(losser));
-        List<Video> losserKey = mongoTemplate.find(query,Video.class);
-        //int result = vrs.calcElo(winnerKey.get(0),losserKey.get(0));
+        query1.addCriteria(Criteria.where("Thumbnail").is(losser));
+        List<Video> losserKey = mongoTemplate.find(query1,Video.class);
 
-        return winnerKey.get(0);
+        int result = vrs.calcElo(winnerKey.get(0),losserKey.get(0));
+
+        videoRepository.save(winnerKey.get(0));
+        videoRepository.save(losserKey.get(0));
+
+        return winnerKey.get(0);//temp return type
     }
 
     public Video getChallenger() {
-        return vrs.getChallenger();
+        return vrs.getChallenger(videoRepository.findAll());
+    }
+
+    public Video getOppponent(Video challenger) {
+        Query query = new Query();
+        query.addCriteria(Criteria.where("Thumbnail").ne(challenger.getThumbnail()));
+        List<Video> videos = mongoTemplate.find(query,Video.class);
+        return vrs.getOpponent(challenger,videos);
+
     }
 
 }

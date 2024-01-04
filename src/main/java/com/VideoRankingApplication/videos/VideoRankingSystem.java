@@ -32,14 +32,9 @@ public class VideoRankingSystem {
     //MODIFIES: Video
     //EFFECTS: calculates the new elo for both videos after the user makes their selection
     public int calcElo(Video winner,Video losser) {
-        System.out.println(winner.getElo());
-        System.out.println(losser.getElo());
         float result = (abs(winner.getElo() - losser.getElo()))/400;
-        System.out.println(result);
          result = (float) (1 + pow(10,result));
-        System.out.println(result);
          result = 20 * (1 - (1/result));
-        System.out.println(result);
 
          winner.setElo((int) (winner.getElo() + result));
          losser.setElo((int) (losser.getElo() - result));
@@ -48,19 +43,19 @@ public class VideoRankingSystem {
     }
 
     //EFFECTS: finds a random video in the list of videos to participate in the rank match
-    public Video getChallenger() {
+    public Video getChallenger(List<Video> vidsDb) {
         Random rand = new Random();
-        int index = rand.nextInt(videos.size());
-        return videos.get(index);
+        int index = rand.nextInt(vidsDb.size());
+        return vidsDb.get(index);
     }
 
     //REQUIRES: a randomly selected video to be the challenger
     //EFFECTS: returns an opponent of similar rating/elo
-    public Video getOpponent(Video challenger) {
-        Video opponent = videos.get(0);
-        int lowestElo = abs(videos.get(0).getElo() - challenger.getElo());
+    public Video getOpponent(Video challenger,List<Video> vidsDb) {
+        Video opponent = vidsDb.get(0);
+        int lowestElo = abs(opponent.getElo() - challenger.getElo());
         int eloDiff;
-        for (Video next : videos) {
+        for (Video next : vidsDb) {
             eloDiff = abs(next.getElo() - challenger.getElo());
             if (eloDiff < lowestElo ) {
                 lowestElo = eloDiff;
@@ -70,11 +65,6 @@ public class VideoRankingSystem {
         return opponent;
     }
 
-//    public JSONObject toJson() {
-//        JSONObject json = new JSONObject();
-//        json.put("Videos", videosToJson());
-//        return json;
-//    }
 
     // EFFECTS: returns the songs in this songDatabase as a JSON array
     public JSONArray videosToJson() {

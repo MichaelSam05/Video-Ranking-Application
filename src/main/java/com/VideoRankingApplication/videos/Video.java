@@ -18,19 +18,18 @@ public class Video {
 
     private int Views;
 
-    private String VideoID;
+    private String VideoUrl;
 
     private boolean isFavourite;
 
     private int elo;
-    private static final int ELO = 1600;
 
-    public Video(String VideoTitle, String Thumbnail, String UploadDate, int Views, String VideoID) {
+    public Video(String VideoTitle, String Thumbnail, String UploadDate, int Views, String VideoUrl) {
         this.VideoTitle = VideoTitle;
         this.Thumbnail = Thumbnail;
         this.UploadDate = UploadDate;
         this.Views = Views;
-        this.VideoID = VideoID;
+        this.VideoUrl = VideoUrl;
         isFavourite = false;
         initElo(Views);
     }
@@ -47,9 +46,7 @@ public class Video {
         return UploadDate;
     }
 
-     public String getVideoID() {
-        return VideoID;
-     }
+     public String getVideoUrl() {return VideoUrl;}
 
     public String getVideoTitle() {
         return VideoTitle;
@@ -61,7 +58,7 @@ public class Video {
 
     //EFFECTS: initializes the elo for videos that came from the YouTube api
     public void initElo(int numViews) {
-        int result =  ELO + (numViews/10000);//create an elo using numViews param
+        int result =  1600 + (numViews/10000);//create an elo using numViews param
         this.elo = result;
     }
 
@@ -91,7 +88,7 @@ public class Video {
         json.put("Views", Views);
         json.put("Elo-Rank",elo);
         json.put("IsFavourite", isFavourite);
-        json.put("VideoUrl",VideoID);
+        json.put("VideoUrl", VideoUrl);
         return json;
     }
 
@@ -115,7 +112,7 @@ public class Video {
 
         // comparing the state of argument with
         // the state of 'this' Object.
-        return (video.getVideoID().equals(this.VideoID));
+        return (video.getVideoUrl().equals(this.VideoUrl));
     }
 
 

@@ -5,6 +5,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 //Personal notes: represents the REST API for the front end
@@ -16,9 +18,9 @@ public class VideoController {
     private VideoService videoService;
 
     //Rest API that gets all the videos in the database
-    @GetMapping
-    public ResponseEntity<String> getVideos() {
-        return new ResponseEntity<String>("videos", HttpStatus.OK);
+    @GetMapping("/videos")
+    public ResponseEntity<List<Video>> getVideos() {
+        return new ResponseEntity<List<Video>>(videoService.getAllVideos(), HttpStatus.OK);
     }
 
     //Rest API that adds a new video to the database
@@ -27,17 +29,23 @@ public class VideoController {
         return new ResponseEntity<Video>(videoService.addNewVideo(payload.get("VideoTitle"),payload.get("Thumbnail")),HttpStatus.CREATED);
     }
 
-//    @GetMapping
-//    public ResponseEntity<Video> getOpponent() {
-//        return new ResponseEntity<Video>(videoService.)
-//    }
+    //Rest API that sets up the match
+    @GetMapping
+    public ResponseEntity<List<Video>> setupMatch() {
+        Video challenger = videoService.getChallenger();
+        Video opponent = videoService.getOppponent(challenger);
+        List<Video> match = new ArrayList<>();
+        match.add(challenger);
+        match.add(opponent);
+        return new ResponseEntity<List<Video>>(match,HttpStatus.OK);
+
+    }
 
 
     //Rest API that updates the elo for each video after a match
-    @PutMapping //
+    @PutMapping //temp return type
     public ResponseEntity<Video> updateElos(@RequestBody Map<String,String> payload) {
-        return new ResponseEntity<Video>(videoService.calcNewResuls(payload.get("winner"),payload.get("loser")), HttpStatus.OK);
+        return new ResponseEntity<Video>(videoService.calcNewResuls(payload.get("winner"),payload.get("losser")), HttpStatus.OK);
     }
-
 
 }
