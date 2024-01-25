@@ -33,10 +33,11 @@ def getDataTable (youtube,video_ids):
 
         try: # used to avoid videos with missing data in the fields we are interested in
             data = {'VideoTitle': item['snippet']['title'],
-                    'Thumbnail': item['snippet']['thumbnails']['default']['url'],
+                    'Thumbnail': item['snippet']['thumbnails']['maxres']['url'],
                     'UploadDate': item['snippet']['publishedAt'],
                     'Views': item['statistics']['viewCount'],
-                    'VideoID': "https://www.youtube.com/watch?v=" + video_ids[count]}
+                    'VideoID': "https://www.youtube.com/watch?v=" + video_ids[count],
+                    'Likes': item['statistics']['likeCount']}
             count = count + 1
             all_data.append(data)
 

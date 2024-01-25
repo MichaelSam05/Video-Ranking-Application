@@ -63,4 +63,13 @@ public class VideoService {
 
     }
 
+    public String deleteVideo(int key) {
+        Query query = new Query();
+        query.addCriteria(Criteria.where("id").is(key));
+        List<Video> idKey = mongoTemplate.find(query,Video.class);
+        Video video = idKey.get(0);
+        videoRepository.delete(video);
+        return "Success";
+    }
+
 }

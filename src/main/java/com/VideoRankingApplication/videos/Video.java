@@ -10,6 +10,8 @@ public class Video {
     @Id
     private ObjectId objectId;
 
+    static int temp= 0;
+    int id = temp;
     private String VideoTitle;
 
     private String Thumbnail;
@@ -25,6 +27,7 @@ public class Video {
     private int elo;
 
     public Video(String VideoTitle, String Thumbnail, String UploadDate, int Views, String VideoUrl) {
+
         this.VideoTitle = VideoTitle;
         this.Thumbnail = Thumbnail;
         this.UploadDate = UploadDate;
@@ -32,6 +35,8 @@ public class Video {
         this.VideoUrl = VideoUrl;
         isFavourite = false;
         initElo(Views);
+        id++;
+        temp = id;
     }
 
     public String getThumbnail() {
@@ -79,6 +84,10 @@ public class Video {
         this.elo = elo;
     }
 
+    public int getId() {
+        return id;
+    }
+
 
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
@@ -89,6 +98,7 @@ public class Video {
         json.put("Elo-Rank",elo);
         json.put("IsFavourite", isFavourite);
         json.put("VideoUrl", VideoUrl);
+        json.put("id",id);
         return json;
     }
 
