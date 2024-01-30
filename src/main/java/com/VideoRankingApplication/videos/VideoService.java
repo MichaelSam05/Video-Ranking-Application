@@ -36,15 +36,15 @@ public class VideoService {
 
     public Video calcNewResuls(String winner,String losser) {
 
+        System.out.println(winner);
+        System.out.println(losser);
         Query query = new Query();
-        query.addCriteria(Criteria.where("Thumbnail").is(winner));
+        query.addCriteria(Criteria.where("thumbnail").is(winner));
         List<Video> winnerKey = mongoTemplate.find(query,Video.class);
         Query query1 = new Query();
-        query1.addCriteria(Criteria.where("Thumbnail").is(losser));
+        query1.addCriteria(Criteria.where("thumbnail").is(losser));
         List<Video> losserKey = mongoTemplate.find(query1,Video.class);
-
         int result = vrs.calcElo(winnerKey.get(0),losserKey.get(0));
-
         videoRepository.save(winnerKey.get(0));
         videoRepository.save(losserKey.get(0));
 
@@ -57,7 +57,7 @@ public class VideoService {
 
     public Video getOppponent(Video challenger) {
         Query query = new Query();
-        query.addCriteria(Criteria.where("Thumbnail").ne(challenger.getThumbnail()));
+        query.addCriteria(Criteria.where("thumbnail").ne(challenger.getThumbnail()));
         List<Video> videos = mongoTemplate.find(query,Video.class);
         return vrs.getOpponent(challenger,videos);
 

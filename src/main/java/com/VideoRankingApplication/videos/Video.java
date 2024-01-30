@@ -12,15 +12,15 @@ public class Video {
 
     static int temp= 0;
     int id = temp;
-    private String VideoTitle;
+    private String videoTitle;
 
-    private String Thumbnail;
+    private String thumbnail;
 
-    private String UploadDate;
+    private String uploadDate;
 
-    private int Views;
+    private int views;
 
-    private String VideoUrl;
+    private String videoUrl;
 
     private boolean isFavourite;
 
@@ -28,11 +28,11 @@ public class Video {
 
     public Video(String VideoTitle, String Thumbnail, String UploadDate, int Views, String VideoUrl) {
 
-        this.VideoTitle = VideoTitle;
-        this.Thumbnail = Thumbnail;
-        this.UploadDate = UploadDate;
-        this.Views = Views;
-        this.VideoUrl = VideoUrl;
+        this.videoTitle = VideoTitle;
+        this.thumbnail = Thumbnail;
+        this.uploadDate = UploadDate;
+        this.views = Views;
+        this.videoUrl = VideoUrl;
         isFavourite = false;
         initElo(Views);
         id++;
@@ -40,7 +40,7 @@ public class Video {
     }
 
     public String getThumbnail() {
-        return Thumbnail;
+        return thumbnail;
     }
 
     public int getElo() {
@@ -48,17 +48,17 @@ public class Video {
     }
 
     public String getUploadDate() {
-        return UploadDate;
+        return uploadDate;
     }
 
-     public String getVideoUrl() {return VideoUrl;}
+     public String getVideoUrl() {return videoUrl;}
 
     public String getVideoTitle() {
-        return VideoTitle;
+        return videoTitle;
     }
 
     public int getViews() {
-        return Views;
+        return views;
     }
 
     //EFFECTS: initializes the elo for videos that came from the YouTube api
@@ -91,13 +91,13 @@ public class Video {
 
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
-        json.put("VideoTitle", VideoTitle);
-        json.put("Thumbnail", Thumbnail);
-        json.put("UploadDate",  UploadDate);
-        json.put("Views", Views);
-        json.put("Elo-Rank",elo);
-        json.put("IsFavourite", isFavourite);
-        json.put("VideoUrl", VideoUrl);
+        json.put("videoTitle", videoTitle);
+        json.put("thumbnail", thumbnail);
+        json.put("uploadDate", uploadDate);
+        json.put("views", views);
+        json.put("elo-Rank",elo);
+        json.put("isFavourite", isFavourite);
+        json.put("videoUrl", videoUrl);
         json.put("id",id);
         return json;
     }
@@ -122,7 +122,7 @@ public class Video {
 
         // comparing the state of argument with
         // the state of 'this' Object.
-        return (video.getVideoUrl().equals(this.VideoUrl));
+        return (video.getVideoUrl().equals(this.videoUrl));
     }
 
 

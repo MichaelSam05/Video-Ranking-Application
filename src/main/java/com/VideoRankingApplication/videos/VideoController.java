@@ -47,6 +47,10 @@ public class VideoController {
     public ResponseEntity<Video> updateElos(@RequestBody Map<String,String> payload) {
         return new ResponseEntity<Video>(videoService.calcNewResuls(payload.get("winner"),payload.get("losser")), HttpStatus.OK);
     }
+//    @PutMapping //temp return type
+//    public ResponseEntity<Video> updateElos(@RequestBody Video winner, Video loser) {
+//        return new ResponseEntity<Video>(videoService.calcNewResuls(winner,loser), HttpStatus.OK);
+//    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteVideo(@PathVariable("id") int id) {

@@ -1,92 +1,92 @@
 [
     {
-        "UploadDate": "2023-01-16T11:42:39Z",
-        "Views": 1230535,
-        "IsFavourite": false,
+        "thumbnail": "https://i.ytimg.com/vi/4kLviL8XwAI/maxresdefault_live.jpg",
+        "elo-Rank": 1723,
+        "uploadDate": "2023-01-16T11:42:39Z",
+        "videoUrl": "https://www.youtube.com/watch?v=4kLviL8XwAI",
         "id": 1,
-        "Thumbnail": "https://i.ytimg.com/vi/4kLviL8XwAI/maxresdefault_live.jpg",
-        "Elo-Rank": 1723,
-        "VideoTitle": "Music for Work \u2014 Programming, Hacking, Coding Radio",
-        "VideoUrl": "https://www.youtube.com/watch?v=4kLviL8XwAI"
+        "videoTitle": "Music for Work \u2014 Programming, Hacking, Coding Radio",
+        "isFavourite": false,
+        "views": 1230535
     },
     {
-        "UploadDate": "2023-01-04T16:41:22Z",
-        "Views": 1657782,
-        "IsFavourite": false,
+        "thumbnail": "https://i.ytimg.com/vi/66tfvFeALBQ/maxresdefault.jpg",
+        "elo-Rank": 1765,
+        "uploadDate": "2023-01-04T16:41:22Z",
+        "videoUrl": "https://www.youtube.com/watch?v=66tfvFeALBQ",
         "id": 2,
-        "Thumbnail": "https://i.ytimg.com/vi/66tfvFeALBQ/maxresdefault.jpg",
-        "Elo-Rank": 1765,
-        "VideoTitle": "How to ACTUALLY learn to code... 7 Roadmaps for 2023",
-        "VideoUrl": "https://www.youtube.com/watch?v=66tfvFeALBQ"
+        "videoTitle": "How to ACTUALLY learn to code... 7 Roadmaps for 2023",
+        "isFavourite": false,
+        "views": 1657782
     },
     {
-        "UploadDate": "2022-09-16T17:29:40Z",
-        "Views": 2206862,
-        "IsFavourite": false,
+        "thumbnail": "https://i.ytimg.com/vi/k7LSFYyBZUs/maxresdefault.jpg",
+        "elo-Rank": 1820,
+        "uploadDate": "2022-09-16T17:29:40Z",
+        "videoUrl": "https://www.youtube.com/watch?v=k7LSFYyBZUs",
         "id": 3,
-        "Thumbnail": "https://i.ytimg.com/vi/k7LSFYyBZUs/maxresdefault.jpg",
-        "Elo-Rank": 1820,
-        "VideoTitle": "Coding for 1 Month Versus 1 Year #shorts #coding",
-        "VideoUrl": "https://www.youtube.com/watch?v=k7LSFYyBZUs"
+        "videoTitle": "Coding for 1 Month Versus 1 Year #shorts #coding",
+        "isFavourite": false,
+        "views": 2206862
     },
     {
-        "UploadDate": "2023-06-13T18:52:08Z",
-        "Views": 3751220,
-        "IsFavourite": false,
+        "thumbnail": "https://i.ytimg.com/vi/WR1ydijTx5E/maxresdefault.jpg",
+        "elo-Rank": 1975,
+        "uploadDate": "2023-06-13T18:52:08Z",
+        "videoUrl": "https://www.youtube.com/watch?v=WR1ydijTx5E",
         "id": 4,
-        "Thumbnail": "https://i.ytimg.com/vi/WR1ydijTx5E/maxresdefault.jpg",
-        "Elo-Rank": 1975,
-        "VideoTitle": "How I Learned to Code in 4 Months & Got a Job! (No CS Degree, No Bootcamp)",
-        "VideoUrl": "https://www.youtube.com/watch?v=WR1ydijTx5E"
+        "videoTitle": "How I Learned to Code in 4 Months & Got a Job! (No CS Degree, No Bootcamp)",
+        "isFavourite": false,
+        "views": 3751220
     },
     {
-        "UploadDate": "2015-11-16T01:54:05Z",
-        "Views": 1481144,
-        "IsFavourite": false,
+        "thumbnail": "https://i.ytimg.com/vi/N7ZmPYaXoic/maxresdefault.jpg",
+        "elo-Rank": 1748,
+        "uploadDate": "2015-11-16T01:54:05Z",
+        "videoUrl": "https://www.youtube.com/watch?v=N7ZmPYaXoic",
         "id": 5,
-        "Thumbnail": "https://i.ytimg.com/vi/N7ZmPYaXoic/maxresdefault.jpg",
-        "Elo-Rank": 1748,
-        "VideoTitle": "What is Coding?",
-        "VideoUrl": "https://www.youtube.com/watch?v=N7ZmPYaXoic"
+        "videoTitle": "What is Coding?",
+        "isFavourite": false,
+        "views": 1481144
     },
     {
-        "UploadDate": "2021-02-25T08:56:12Z",
-        "Views": 1836017,
-        "IsFavourite": false,
+        "thumbnail": "https://i.ytimg.com/vi/CIRGjwYgdT4/maxresdefault.jpg",
+        "elo-Rank": 1783,
+        "uploadDate": "2021-02-25T08:56:12Z",
+        "videoUrl": "https://www.youtube.com/watch?v=CIRGjwYgdT4",
         "id": 6,
-        "Thumbnail": "https://i.ytimg.com/vi/CIRGjwYgdT4/maxresdefault.jpg",
-        "Elo-Rank": 1783,
-        "VideoTitle": "Programming vs Coding - What's the difference?",
-        "VideoUrl": "https://www.youtube.com/watch?v=CIRGjwYgdT4"
+        "videoTitle": "Programming vs Coding - What's the difference?",
+        "isFavourite": false,
+        "views": 1836017
     },
     {
-        "UploadDate": "2022-02-09T15:45:16Z",
-        "Views": 1986174,
-        "IsFavourite": false,
+        "thumbnail": "https://i.ytimg.com/vi/NtfbWkxJTHw/maxresdefault.jpg",
+        "elo-Rank": 1798,
+        "uploadDate": "2022-02-09T15:45:16Z",
+        "videoUrl": "https://www.youtube.com/watch?v=NtfbWkxJTHw",
         "id": 7,
-        "Thumbnail": "https://i.ytimg.com/vi/NtfbWkxJTHw/maxresdefault.jpg",
-        "Elo-Rank": 1798,
-        "VideoTitle": "How to Learn to Code - 8 Hard Truths",
-        "VideoUrl": "https://www.youtube.com/watch?v=NtfbWkxJTHw"
+        "videoTitle": "How to Learn to Code - 8 Hard Truths",
+        "isFavourite": false,
+        "views": 1986174
     },
     {
-        "UploadDate": "2024-01-23T18:14:30Z",
-        "Views": 37,
-        "IsFavourite": false,
+        "thumbnail": "https://i.ytimg.com/vi/MKNLIJj5UEY/maxresdefault.jpg",
+        "elo-Rank": 1600,
+        "uploadDate": "2024-01-23T18:14:30Z",
+        "videoUrl": "https://www.youtube.com/watch?v=MKNLIJj5UEY",
         "id": 8,
-        "Thumbnail": "https://i.ytimg.com/vi/MKNLIJj5UEY/maxresdefault.jpg",
-        "Elo-Rank": 1600,
-        "VideoTitle": "اسرع طريقة تتخلص بيها من الارقام المتكررة #بايثون_بالعربي #python #برمجة #coding #بايثون",
-        "VideoUrl": "https://www.youtube.com/watch?v=MKNLIJj5UEY"
+        "videoTitle": "اسرع طريقة تتخلص بيها من الارقام المتكررة #بايثون_بالعربي #python #برمجة #coding #بايثون",
+        "isFavourite": false,
+        "views": 37
     },
     {
-        "UploadDate": "2018-11-04T01:12:12Z",
-        "Views": 5762775,
-        "IsFavourite": false,
+        "thumbnail": "https://i.ytimg.com/vi/bJzb-RuUcMU/maxresdefault.jpg",
+        "elo-Rank": 2176,
+        "uploadDate": "2018-11-04T01:12:12Z",
+        "videoUrl": "https://www.youtube.com/watch?v=bJzb-RuUcMU",
         "id": 9,
-        "Thumbnail": "https://i.ytimg.com/vi/bJzb-RuUcMU/maxresdefault.jpg",
-        "Elo-Rank": 2176,
-        "VideoTitle": "How To Learn Programming for BEGINNERS! (2022/2023)",
-        "VideoUrl": "https://www.youtube.com/watch?v=bJzb-RuUcMU"
+        "videoTitle": "How To Learn Programming for BEGINNERS! (2022/2023)",
+        "isFavourite": false,
+        "views": 5762775
     }
 ]
