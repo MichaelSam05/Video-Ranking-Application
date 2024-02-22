@@ -8,7 +8,7 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
 //"Code influenced by the JsonSerizalizationDemo https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git"
-// Represents a writer that writes JSON representation of songDatabase to file
+// Represents a writer that writes JSON representation of videoDatabase to file
 public class JsonWriter {
     private static final int TAB = 4;
     private PrintWriter writer;
@@ -27,7 +27,7 @@ public class JsonWriter {
     }
 
     // MODIFIES: this
-    // EFFECTS: writes JSON representation of songDatabase to file
+    // EFFECTS: writes JSON representation of videoDatabase to file
     public void write(VideoRankingSystem vrs) {
         JSONArray json = vrs.videosToJson();
         saveToFile(json.toString(TAB));

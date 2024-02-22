@@ -5,6 +5,7 @@ import org.json.JSONObject;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+// represents a video for a database in a video ranking sytem
 @Document(collection = "videos")
 public class Video {
     @Id
@@ -26,15 +27,15 @@ public class Video {
 
     private int elo;
 
-    public Video(String VideoTitle, String Thumbnail, String UploadDate, int Views, String VideoUrl) {
+    public Video(String videoTitle, String thumbnail, String uploadDate, int views, String videoUrl) {
 
-        this.videoTitle = VideoTitle;
-        this.thumbnail = Thumbnail;
-        this.uploadDate = UploadDate;
-        this.views = Views;
-        this.videoUrl = VideoUrl;
+        this.videoTitle = videoTitle;
+        this.thumbnail = thumbnail;
+        this.uploadDate = uploadDate;
+        this.views = views;
+        this.videoUrl = videoUrl;
         isFavourite = false;
-        initElo(Views);
+        initElo(views);
         id++;
         temp = id;
     }
@@ -89,6 +90,7 @@ public class Video {
     }
 
 
+    //EFFECTS: converts a video object into a json object
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
         json.put("videoTitle", videoTitle);
@@ -101,29 +103,4 @@ public class Video {
         json.put("id",id);
         return json;
     }
-
-    @Override
-    public boolean equals(Object obj)
-    {
-        // if both the object references are
-        // referring to the same object.
-        if(this == obj)
-            return true;
-
-        // it checks if the argument is of the
-        // type Geek by comparing the classes
-        // of the passed argument and this object.
-        // if(!(obj instanceof Geek)) return false; ---> avoid.
-        if(obj == null || obj.getClass()!= this.getClass())
-            return false;
-
-        // type casting of the argument.
-        Video video = (Video) obj;
-
-        // comparing the state of argument with
-        // the state of 'this' Object.
-        return (video.getVideoUrl().equals(this.videoUrl));
-    }
-
-
 }
