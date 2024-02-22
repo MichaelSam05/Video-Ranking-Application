@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react'
 import { createRankMatch, deleteVideo, listVideos } from '../services/VideoService'
-import logo from '../images/redheart.png'
 import { useNavigate } from 'react-router-dom'
 import './ListVideos.css'
 

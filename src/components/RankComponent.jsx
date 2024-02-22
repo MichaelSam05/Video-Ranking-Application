@@ -4,9 +4,6 @@ import { createRankMatch,updateElos } from '../services/VideoService'
 import {useEffect, useState} from 'react'
 import './RankComponent.css'
 
-
-
-
 function RankComponenent() {
   const [videos,setVideos] = useState([])
   const [winner, setWinner] = useState('')
