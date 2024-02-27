@@ -12,7 +12,7 @@ import java.nio.file.Paths;
 import java.util.stream.Stream;
 
 //"Code influenced by the JsonSerizalizationDemo https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git"
-// Represents a reader that reads songDatabase from JSON data stored in file
+// Represents a reader that reads videoDatabase from JSON data stored in file
 public class JsonReader {
     private String source;
 
@@ -21,7 +21,7 @@ public class JsonReader {
         this.source = source;
     }
 
-    // EFFECTS: reads songDatabase from file and returns it;
+    // EFFECTS: reads videoDatabase from file and returns it;
     // throws IOException if an error occurs reading data from file
     public VideoRankingSystem read() throws IOException {
         String jsonData = readFile(source);
@@ -40,15 +40,15 @@ public class JsonReader {
         return contentBuilder.toString();
     }
 
-    // EFFECTS: parses songDatabase from JSON object and returns it
+    // EFFECTS: parses videoDatabase from JSON object and returns it
     private VideoRankingSystem parseVideoDatabase(JSONArray jsonArray) {
         VideoRankingSystem  vrs = new VideoRankingSystem();
         addVideos(vrs, jsonArray);
         return vrs;
     }
 
-    // MODIFIES: sd
-    // EFFECTS: parses songs from JSON object and adds them to songDatabase
+    // MODIFIES: vd
+    // EFFECTS: parses videos from JSON object and adds them to videoDatabase
     private void addVideos(VideoRankingSystem vrs, JSONArray jsonArray) {
 
         for (Object json : jsonArray) {
@@ -57,8 +57,8 @@ public class JsonReader {
         }
     }
 
-    // MODIFIES: sd
-    // EFFECTS: parses song from JSON object and adds it to songDatabase
+    // MODIFIES: vd
+    // EFFECTS: parses video from JSON object and adds it to videoDatabase
     private void addVideo(VideoRankingSystem vrs, JSONObject jsonObject) {
         String title = jsonObject.getString("VideoTitle");
         String thumbnail = jsonObject.getString("Thumbnail");

@@ -25,7 +25,7 @@ public class VideoController {
     }
 
     //Rest API that adds a new video to the database
-    @PostMapping //this is a POST request and is used in conjunction with POSTMAN to test http requests
+    @PostMapping
     public ResponseEntity<Video> addNewVideo(@RequestBody Map<String,String> payload){
         return new ResponseEntity<Video>(videoService.addNewVideo(payload.get("videoTitle"),payload.get("videoThumbnail")),HttpStatus.CREATED);
     }
@@ -43,15 +43,14 @@ public class VideoController {
 
 
     //Rest API that updates the elo for each video after a match
-    @PutMapping //temp return type
+    @PutMapping
     public ResponseEntity<Video> updateElos(@RequestBody Map<String,String> payload) {
         return new ResponseEntity<Video>(videoService.calcNewResuls(payload.get("winner"),payload.get("losser")), HttpStatus.OK);
     }
 
+    //EFFECTS: rest API for deleting videos
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteVideo(@PathVariable("id") int id) {
-//        String fullUrl = request.getRequestURL().toString();
-//        String Thumbnail = fullUrl.split("/delete/")[1];
           return new ResponseEntity<String>(videoService.deleteVideo(id),HttpStatus.OK);
 
     }

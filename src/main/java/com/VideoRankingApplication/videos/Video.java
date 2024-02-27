@@ -5,6 +5,7 @@ import org.json.JSONObject;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+// represents a video for a database in a video ranking sytem
 @Document(collection = "videos")
 public class Video {
     @Id
@@ -12,35 +13,35 @@ public class Video {
 
     static int temp= 0;
     int id = temp;
-    private String VideoTitle;
+    private String videoTitle;
 
-    private String Thumbnail;
+    private String thumbnail;
 
-    private String UploadDate;
+    private String uploadDate;
 
-    private int Views;
+    private int views;
 
-    private String VideoUrl;
+    private String videoUrl;
 
     private boolean isFavourite;
 
     private int elo;
 
-    public Video(String VideoTitle, String Thumbnail, String UploadDate, int Views, String VideoUrl) {
+    public Video(String videoTitle, String thumbnail, String uploadDate, int views, String videoUrl) {
 
-        this.VideoTitle = VideoTitle;
-        this.Thumbnail = Thumbnail;
-        this.UploadDate = UploadDate;
-        this.Views = Views;
-        this.VideoUrl = VideoUrl;
+        this.videoTitle = videoTitle;
+        this.thumbnail = thumbnail;
+        this.uploadDate = uploadDate;
+        this.views = views;
+        this.videoUrl = videoUrl;
         isFavourite = false;
-        initElo(Views);
+        initElo(views);
         id++;
         temp = id;
     }
 
     public String getThumbnail() {
-        return Thumbnail;
+        return thumbnail;
     }
 
     public int getElo() {
@@ -48,17 +49,17 @@ public class Video {
     }
 
     public String getUploadDate() {
-        return UploadDate;
+        return uploadDate;
     }
 
-     public String getVideoUrl() {return VideoUrl;}
+     public String getVideoUrl() {return videoUrl;}
 
     public String getVideoTitle() {
-        return VideoTitle;
+        return videoTitle;
     }
 
     public int getViews() {
-        return Views;
+        return views;
     }
 
     //EFFECTS: initializes the elo for videos that came from the YouTube api
@@ -89,41 +90,17 @@ public class Video {
     }
 
 
+    //EFFECTS: converts a video object into a json object
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
-        json.put("VideoTitle", VideoTitle);
-        json.put("Thumbnail", Thumbnail);
-        json.put("UploadDate",  UploadDate);
-        json.put("Views", Views);
-        json.put("Elo-Rank",elo);
-        json.put("IsFavourite", isFavourite);
-        json.put("VideoUrl", VideoUrl);
+        json.put("videoTitle", videoTitle);
+        json.put("thumbnail", thumbnail);
+        json.put("uploadDate", uploadDate);
+        json.put("views", views);
+        json.put("elo-Rank",elo);
+        json.put("isFavourite", isFavourite);
+        json.put("videoUrl", videoUrl);
         json.put("id",id);
         return json;
     }
-
-    @Override
-    public boolean equals(Object obj)
-    {
-        // if both the object references are
-        // referring to the same object.
-        if(this == obj)
-            return true;
-
-        // it checks if the argument is of the
-        // type Geek by comparing the classes
-        // of the passed argument and this object.
-        // if(!(obj instanceof Geek)) return false; ---> avoid.
-        if(obj == null || obj.getClass()!= this.getClass())
-            return false;
-
-        // type casting of the argument.
-        Video video = (Video) obj;
-
-        // comparing the state of argument with
-        // the state of 'this' Object.
-        return (video.getVideoUrl().equals(this.VideoUrl));
-    }
-
-
 }
