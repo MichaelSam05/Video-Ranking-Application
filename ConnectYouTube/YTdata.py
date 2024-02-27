@@ -6,7 +6,7 @@ import googleapiclient.errors
 
 
 #Declaration of constants
-API_KEY = "AIzaSyAWvFsPMAsoU1c2CPafKOXGH6l0Ot2o43s"
+API_KEY = "[REDACTED]"
 KEYWORD = "coding"
 MAX_RESULTS = 10
 INDENT = 4
