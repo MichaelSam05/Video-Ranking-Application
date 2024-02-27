@@ -43,7 +43,7 @@ public class VideoController {
 
 
     //Rest API that updates the elo for each video after a match
-    @PutMapping //temp return type
+    @PutMapping
     public ResponseEntity<Video> updateElos(@RequestBody Map<String,String> payload) {
         return new ResponseEntity<Video>(videoService.calcNewResuls(payload.get("winner"),payload.get("losser")), HttpStatus.OK);
     }
