@@ -45,13 +45,18 @@ command to run if program contains helper info
 ## Usage/User Stories
 
 #### Functionality
-- The first launch of the web application automatically calls the GET method (through the /videos or / endpoints) that returns an Arraylist object of Videos which is interpreted as the leaderboard.
-- Adding a thumbnail/image url to the database is serviced through the /add-video endpoint with a body schema from which a POST method recieves the title and image url of the video to be added to the MongoDb database.
+- The initial dummy data was provided by the YouTube API and can be viewed in [FormattedVideos.json](https://github.com/MichaelSam05/Video-Ranking-Application/blob/master/data/FormattedVideos.json). The code used to interface with the YouTube API can be viewed [here](https://github.com/MichaelSam05/Video-Ranking-Application/blob/master/ConnectYouTube/YTdata.py).
 
-- Likewise, deleting an entry/video is done via a DELETE method that recieves the video "id" automatically through the PathVariable Spring Boot annotation.
+- On first launch of the web application (via the `/` or `/videos` endpoints) automatically calls the `GET` request method located in the backend where the REST API's response is an Arraylist object of Video objects which is interpreted as the leaderboard.
 
-- Starting a ranked match is done through the /rank endpoint whereby a GET request is called and the REST API responds by randomly selecting a thumbnail from the database and finding another thumbnail that is closest in elo to the first thumbnail. After the user votes, a PUT request to the API is triggered an the participating thumbnail elos are updated; the winning thumbnail gains elo while the losing thumbnail loses elo. (Elo Ranking Details)
 
+- Adding a thumbnail/image url to the database is serviced through the `/add-video` endpoint with a body schema from which a `POST` request is made to the REST API which is acompanied by the title and image url of the video to be added to the MongoDb database.
+
+- Likewise, deleting an entry/video is done via a `DELETE` request that recieves the video `id` automatically through the PathVariable Spring Boot annotation.
+
+- Starting a ranked match is done through the `/rank` endpoint whereby a `GET` request is made and the REST API responds by randomly selecting a thumbnail from the database and finding another thumbnail that is closest in elo to the first thumbnail. After the user votes, a `PUT` request to the API is triggered an the participating thumbnail elos are updated; the winning thumbnail gains elo while the losing thumbnail loses elo. The Java code can be found [here](https://github.com/MichaelSam05/Video-Ranking-Application/blob/master/src/main/java/com/VideoRankingApplication/videos/VideoRankingSystem.java) and details about elo calculations can viewed [here](https://www.omnicalculator.com/sports/elo).
+
+> All `REST API` requests can be viewed in this [Java class](https://github.com/MichaelSam05/Video-Ranking-Application/blob/master/src/main/java/com/VideoRankingApplication/videos/VideoController.java).
 
 
 
