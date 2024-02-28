@@ -3,7 +3,7 @@ import ListVideos from './components/ListVideos.jsx'
 import Sidebar from './components/Sidebar.jsx'
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
 import VideoComponent from './components/VideoComponent.jsx'
-import RankComponenent from './components/RankComponenent.jsx'
+import RankComponenent from './components/RankComponent.jsx'
 function App() {
   
 
