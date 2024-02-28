@@ -37,11 +37,6 @@ Thumbnails on the video sharing platform, YouTube, play a critical role in deter
 
 > All `REST API` requests can be viewed in this [Java class](https://github.com/MichaelSam05/Video-Ranking-Application/blob/master/src/main/java/com/VideoRankingApplication/videos/VideoController.java).
 
-##
-## License
-
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
-
 ## Contact
 Michael Sam - michaelsam2016@outlook.com
 
