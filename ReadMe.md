@@ -23,17 +23,17 @@ Thumbnails on the video sharing platform, YouTube, play a critical role in deter
 
 
 - On first launch of the web application (via the `/` or `/videos` endpoints) automatically calls the `GET` request method located in the backend where the REST API's response is an Arraylist object of Video objects which is interpreted as the leaderboard.
-![leaderboard](../src/assets/Home-Leaderboard.png)
+![leaderboard](./src/assets/Home-Leaderboard.png)
 
 
 - Adding a thumbnail/image url to the database is serviced through the `/add-video` endpoint with a body schema from which a `POST` request is made to the REST API which is acompanied by the title and image url of the video to be added to the MongoDb database.
-![add-component](../src/assets/Add-option.png)
+![add-component](./src/assets/Add-option.png)
 
 - Likewise, deleting an entry/video is done via a `DELETE` request that recieves the video `id` automatically through the PathVariable Spring Boot annotation.
 
 - Starting a ranked match is done through the `/rank` endpoint whereby a `GET` request is made and the REST API responds by randomly selecting a thumbnail from the database and finding another thumbnail that is closest in elo to the first thumbnail. After the user votes, a `PUT` request to the API is triggered an the participating thumbnail elos are updated; the winning thumbnail gains elo while the losing thumbnail loses elo. The Java code can be found [here](https://github.com/MichaelSam05/Video-Ranking-Application/blob/master/src/main/java/com/VideoRankingApplication/videos/VideoRankingSystem.java) and details about elo calculations can viewed [here](https://www.omnicalculator.com/sports/elo).
 
-![rank-component](../src/assets/rank-component.png)
+![rank-component](./src/assets/rank-component.png)
 
 > All `REST API` requests can be viewed in this [Java class](https://github.com/MichaelSam05/Video-Ranking-Application/blob/master/src/main/java/com/VideoRankingApplication/videos/VideoController.java).
 
