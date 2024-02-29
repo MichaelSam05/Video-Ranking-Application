@@ -7,14 +7,10 @@ Full stack web application written in Java that utilizes a custom REST API archi
 Thumbnails on the video sharing platform, YouTube, play a critical role in determining the success of any given video; a good thumbnail increases the likelyhood of viewers clicking on that video but how can we know if our thumbnail is good enough? Is there a way to pilot something this crucial? This is what my application aims to solve. Content creators can upload their thumbnails to this application where they are pitted against each other in 1vs1 ranked matches to determine which thumbnail is more superior. Though this, content creators can make adjustmenst or gain insight into which thumbnails work to give themselves the best possible chance on the YouTube platform.
 
 ## Technologies Used
-#### Frontend
-- React + Vite 
-#### Backend
-- Java
-- Python
-- Spring Boot
-#### Database
-- MongoDb
+- Frontend: React + Vite 
+- Backend: Java, Python, Spring Boot
+- Database: MongoDB
+- HTTP Testing: Postman
 
 ## Usage/User Stories
 
@@ -34,6 +30,7 @@ Thumbnails on the video sharing platform, YouTube, play a critical role in deter
 - Starting a ranked match is done through the `/rank` endpoint whereby a `GET` request is made and the REST API responds by randomly selecting a thumbnail from the database and finding another thumbnail that is closest in elo to the first thumbnail. After the user votes, a `PUT` request to the API is triggered an the participating thumbnail elos are updated; the winning thumbnail gains elo while the losing thumbnail loses elo. The Java code can be found [here](https://github.com/MichaelSam05/Video-Ranking-Application/blob/master/src/main/java/com/VideoRankingApplication/videos/VideoRankingSystem.java) and details about elo calculations can viewed [here](https://www.omnicalculator.com/sports/elo).
 
 ![rank-component](./src/assets/rank-component.png)
+
 
 > All `REST API` requests can be viewed in this [Java class](https://github.com/MichaelSam05/Video-Ranking-Application/blob/master/src/main/java/com/VideoRankingApplication/videos/VideoController.java).
 
