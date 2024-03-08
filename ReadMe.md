@@ -6,6 +6,9 @@ Full stack web application written in Java that utilizes a custom REST API archi
 
 Thumbnails on the video sharing platform, YouTube, play a critical role in determining the success of any given video; a good thumbnail increases the likelyhood of viewers clicking on that video but how can we know if our thumbnail is good enough? Is there a way to pilot something this crucial? This is what my application aims to solve. Content creators can upload their thumbnails to this application where they are pitted against each other in 1vs1 ranked matches to determine which thumbnail is more superior. Though this, content creators can make adjustmenst or gain insight into which thumbnails work to give themselves the best possible chance on the YouTube platform.
 
+## Demo
+[![Watch the video](./src/assets/Home-Leaderboard.png)](./src/assets/AppDemo.mp4)
+
 ## Technologies Used
 - Frontend: React + Vite 
 - Backend: Java, Python, Spring Boot
