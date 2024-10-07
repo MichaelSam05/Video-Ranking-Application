@@ -11,7 +11,7 @@ https://github.com/MichaelSam05/Video-Ranking-Application/assets/115593865/67aab
 
 
 ## Technologies Used
-- Frontend: React + Vite 
+- Frontend: Javascript, React + Vite 
 - Backend: Java, Python, Spring Boot
 - Database: MongoDB
 - HTTP Testing: Postman
